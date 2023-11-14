@@ -1,7 +1,5 @@
 use clap::{Arg, App, ArgMatches};
 
-//todo:新建一个struct，把所有可能的arg都包含，然后一并解决了
-
 pub struct Args{
     hostname: String,
     class: String,
