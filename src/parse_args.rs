@@ -1,5 +1,6 @@
 use clap::{Arg, App, ArgMatches};
 
+#[derive(Debug)]
 pub struct Args{
     hostname: String,
     class: String,
@@ -24,8 +25,10 @@ impl Args {
         let recursive = matches.is_present("recursive");
         let verbose = matches.is_present("verbose");
         let waitforever = matches.is_present("waitforever");
+        // TODO: add error handling, host: only one of -4 and -6 allowed
         let ipv4 = matches.is_present("ipv4");
         let ipv6 = matches.is_present("ipv6");
+        // TODO: add error handling, host: only one of -T and -U allowed
         let tcp = matches.is_present("tcp");
         let udp = matches.is_present("udp");
         let wait = matches.value_of("wait").unwrap_or("5").parse().unwrap();
@@ -128,7 +131,6 @@ pub fn parse_args() -> ArgMatches<'static> {
                  .takes_value(false)
                  .help("This option sets wait forever"))
         .arg(Arg::with_name("Wait")
-                 .short("W")
                  .long("Wait")
                  .takes_value(true)
                  .help("This  options sets the length of the wait timeout, indicating that named should wait for up to wait seconds for a reply. If wait is less than 1, the wait interval is set to 1 second. By default, host waits for 5 seconds for UDP responses and 10 seconds for TCP connections. "))
