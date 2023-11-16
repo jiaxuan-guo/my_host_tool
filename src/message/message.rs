@@ -3,6 +3,7 @@ use crate::message::question::Question;
 use crate::message::record::Record;
 use crate::parse_args::Args;
 
+#[derive(Debug)]
 pub struct Message {
     // RFC 1035, section 4.1
     // +---------------------+
@@ -27,7 +28,7 @@ impl Message {
     pub fn new_query(id: u16, args: Args) -> Self {
         Message{
             header: Header::new(id),
-            question: vec![],
+            question: vec![Question::new(args.get_hostname().to_string())],
             answer: vec![],
             authority: vec![],
             additional: vec![],

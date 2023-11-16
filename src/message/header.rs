@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Header {
 //  RFC1035 section 4.1.1 Header section format
 //                                   1  1  1  1  1  1
@@ -49,19 +50,24 @@ impl Header {
         }
     }
 }
+
+
 // A one bit field that specifies whether this message is a query (0), or a response (1).
+#[derive(Debug)]
 enum Qr {
     Query = 0,
     Response = 1,
 }
 
 // A four bit field that specifies kind of query in this message.  This value is set by the originator of a query and copied into the response.
+#[derive(Debug)]
 enum Opcode {
     Query = 0,
     Iquery = 1,
     Status = 2,
 }
 
+#[derive(Debug)]
 enum ResponseCode {
     NoError = 0,
     FormatError = 1,

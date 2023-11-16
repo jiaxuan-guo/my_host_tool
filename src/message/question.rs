@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Question {
 //  RFC 1035 section 4.1.2
 //                                   1  1  1  1  1  1
@@ -12,20 +13,28 @@ pub struct Question {
 //   |                     QCLASS                    |
 //   +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
     qname: String,
-    qtype: String,
+    qtype: Qtype,
     qclass: Qclass
 }
 
+
 impl Question {
-    pub fn new() -> Self {
+    pub fn new(qname: String) -> Self {
         Question {
-            qname: (),
-            qtype: (),
+            qname,
+            qtype: Qtype::A,
             qclass: Qclass::IN, //todo: hard code for now
         }
     }
 }
 
+#[derive(Debug)]
+enum Qtype {
+    A = 1, // a host address
+    //todo: add more later
+}
+
+#[derive(Debug)]
 enum Qclass {
     IN = 1, // the Internet
     CH = 3, // the CHAOS class

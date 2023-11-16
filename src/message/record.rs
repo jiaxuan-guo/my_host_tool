@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Record{
 //   RFC 1035, section 4.1.3
 //                                   1  1  1  1  1  1
