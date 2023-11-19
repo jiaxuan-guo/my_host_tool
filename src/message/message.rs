@@ -38,4 +38,9 @@ impl Message {
     //
     // args: Args { hostname: "baidu.com", class: "", query_type: "", recursive: false, verbose: false,
     // waitforever: false, wait: 5, ipv4: false, ipv6: false, tcp: false, udp: false }
+
+
+    pub fn serialize(&self)  {
+
+    }
 }
