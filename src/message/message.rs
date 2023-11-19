@@ -3,6 +3,8 @@ use crate::message::question::Question;
 use crate::message::record::Record;
 use crate::parse_args::Args;
 
+// #[derive(Debug, PartialEq, DekuRead, DekuWrite)]
+// #[deku(endian = "big")]
 #[derive(Debug)]
 pub struct Message {
     // RFC 1035, section 4.1
@@ -39,8 +41,5 @@ impl Message {
     // args: Args { hostname: "baidu.com", class: "", query_type: "", recursive: false, verbose: false,
     // waitforever: false, wait: 5, ipv4: false, ipv6: false, tcp: false, udp: false }
 
-
-    pub fn serialize(&self)  {
-
-    }
 }
+

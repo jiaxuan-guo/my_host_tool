@@ -91,7 +91,7 @@ enum ResponseCode {
 }
 
 #[test]
-fn test_header() {
+fn test_header_serde() {
     let test_data: &[u8] = [
         0x00, 0x64, //id
         0x01, // |QR|   Opcode  |AA|TC|RD|
@@ -102,7 +102,7 @@ fn test_header() {
         0x00, 0x04  // ar_count
     ]
     .as_ref();
-    // let test_data: Vec<u8> = vec![0; 14];
+
     let header = Header::try_from(test_data).unwrap();
     println!("{:#?}", header);
 
