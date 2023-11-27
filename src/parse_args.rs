@@ -48,6 +48,24 @@ impl Args {
         };
         args
     }
+
+    pub fn new() -> Args {
+        //create my args
+        let args = Args{
+            hostname: String::from("www.baidu.com"),
+            class: String::from(""),
+            query_type: String::from(""),
+            recursive: true,
+            verbose: false,
+            waitforever: false,
+            wait: 5,
+            ipv4: true,
+            ipv6: false,
+            tcp: false,
+            udp: true,
+        };
+        args
+    }
 }
 
 //getter and setter
